@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1>Welcome to the awesome chat</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="chat-box col-7">
+      <ul class="messages">
+        {{#each messages}}
+          {{> message this}}
+        {{else}}
+          <li>
+            <p >There are no messages here yet... YOU ARE THE SPECIAL UNICORN!!!</p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <div class="row col-7 align-content-stretch">
+      <form class="form-inline">
+        <div class="col-3">
+          <div class="form-group">
+            <label for="user" class="sr-only">Name</label>
+            <input type="text" class="form-control" id="user" placeholder="name">
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="form-group">
+            <label for="msg" class="sr-only">Message</label>
+            <input type="text" class="form-control" id="msg" placeholder="write a message...">
+          </div>
+        </div>
+        <div class="col-2">
+          <button id="send" class="btn btn-default">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
