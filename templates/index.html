@@ -8,8 +8,13 @@
   <div class="row justify-content-center">
     <div class="chat-box col-7">
       <ul class="messages">
-        <!--TODO: render new messages-->
-        <!--handle no messages case-->
+        {{#each messages}}
+          {{> message this}}
+        {{else}}
+          <li>
+            <p >There are no messages here yet... YOU ARE THE SPECIAL UNICORN!!!</p>
+          </li>
+        {{/each}}
       </ul>
     </div>
   </div>

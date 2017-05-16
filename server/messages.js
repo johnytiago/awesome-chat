@@ -1,1 +1,1 @@
-// TODO create message store
+module.exports = [];

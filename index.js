@@ -4,6 +4,7 @@ const routes = require('./server/routes');
 const Inert = require('inert');
 const Vision = require('vision');
 const server = new Hapi.Server();
+const messages = require('./server/messages');
 server.connection({ port: 3000, host: 'localhost' });
 
 const io = require('socket.io')(server.listener);
@@ -13,7 +14,10 @@ io.on('connection', function(socket){
 
   socket.on('chat message', function(msg){
     console.log(msg);
-    // TODO: store messages
+    messages.push({
+      user: msg.user,
+      text: msg.text
+    }); 
     io.emit('chat message', msg);
   });
 

@@ -1,12 +1,11 @@
-// TODO: store messages
-// and return on / request
+var messages = require('../messages.js');
 
 module.exports = [
   {
     method: 'GET',
     path: '/',
     handler: function( req, reply ){
-      reply.view("index");
+      reply.view("index", {messages});
     }
   },
   {
