@@ -3,8 +3,10 @@ const Hapi = require('hapi');
 const routes = require('./server/routes');
 const Inert = require('inert');
 const Vision = require('vision');
-
+const server = new Hapi.Server();
 server.connection({ port: 3000, host: 'localhost' });
+
+// TODO: connect socket io
 
 server.register([Inert, Vision], (err) => {
     if (err) {

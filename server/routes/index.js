@@ -3,9 +3,25 @@ module.exports = [
     method: 'GET',
     path: '/',
     handler: function( req, reply ){
-      reply.view("index", {messages});
+      reply.view("index");
     }
   },
-
-  // TODO: Add route for style and js folder
+  {
+    method: 'GET',
+    path: '/js/{param*}',
+    handler: {
+      directory: {
+        path: 'public/js/'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/css/{param*}',
+    handler: {
+      directory: {
+        path: 'public/css/'
+      }
+    }
+  }
 ]
