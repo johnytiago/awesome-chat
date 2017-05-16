@@ -1,3 +1,5 @@
+// TODO: store messages
+// and return on / request
 
 module.exports = [
   {

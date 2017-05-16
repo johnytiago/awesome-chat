@@ -4,7 +4,6 @@ const routes = require('./server/routes');
 const Inert = require('inert');
 const Vision = require('vision');
 const server = new Hapi.Server();
-const messages = require('./server/messages');
 server.connection({ port: 3000, host: 'localhost' });
 
 const io = require('socket.io')(server.listener);
@@ -12,7 +11,11 @@ const io = require('socket.io')(server.listener);
 io.on('connection', function(socket){
   console.log('a user connected');
 
-  // TODO Add message event
+  socket.on('chat message', function(msg){
+    console.log(msg);
+    // TODO: store messages
+    io.emit('chat message', msg);
+  });
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
